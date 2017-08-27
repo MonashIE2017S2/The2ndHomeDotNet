@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Second Home</title>
+    <meta charset="utf-8">
+    <script src="../JS/jquery-3.2.1.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="JS/jquery-3.2.1.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/font-awesome.css">
+    <link rel="stylesheet" href="../CSS/ProgressSteps.css">
+    <script src="../JS/Chart.js"></script>
+    <script src="../JS/Modals.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../CSS/about.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+        hr {
+            height: 4px;
+            margin-left: 15px;
+            margin-bottom:-3px;
+        }
+        .hr-warning{
+            background-image: -webkit-linear-gradient(left, rgba(210,105,30,.8), rgba(210,105,30,.6), rgba(0,0,0,0));
+        }
+        .hr-success{
+            background-image: -webkit-linear-gradient(left, rgba(15,157,88,.8), rgba(15, 157, 88,.6), rgba(0,0,0,0));
+        }
+        .hr-primary{
+            background-image: -webkit-linear-gradient(left, rgba(66,133,244,.8), rgba(66, 133, 244,.6), rgba(0,0,0,0));
+        }
+        .hr-danger{
+            background-image: -webkit-linear-gradient(left, rgba(244,67,54,.8), rgba(244,67,54,.6), rgba(0,0,0,0));
+        }
+
+        .breadcrumb {
+            background: rgba(245, 245, 245, 0);
+            border: 0px solid rgba(245, 245, 245, 1);
+            border-radius: 25px;
+            display: block;
+        }
+
+        .btn-bread{
+            margin-top:10px;
+            font-size: 12px;
+
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-2 column">
+            <br>
+            <br>
+            <img alt="200x68" src="../Image/second-home.jpg" />
+        </div>
+        <div class="col-md-4 column">
+            <br>
+            <br>
+            <br>
+            <ul class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    Home
+                </li>
+                <li>
+                    <a href="Views/FactsGrid.html">Facts</a>
+                </li>
+                <li>
+                    <a id="modal-137380" href="#modal-container-137380" data-toggle="modal">Quiz</a>
+                    <div class="modal fade" id="modal-container-137380" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h2 class="modal-title" id="myModalLabel">
+                                        Introduction
+                                    </h2>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <li>
+                                            This quiz is design for the user to identify the kids who will experience homelessness.
+                                        </li>
+                                        <li>
+                                            Your answer will be recorded and analyzed.
+                                        </li>
+                                        <li>
+                                            We also ensure that your privacy will not be leaked.
+                                        </li>
+                                        <li>
+                                            Once your answers uploaded is identified as high-risk target, we will give you the opportunity to report this situation.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary" onClick = "window.location.href=('Views/Quiz.html')">Yes, I know it</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="Views/About.html">About</a>
+                </li>
+                <li>
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="https://github.com/MonashIE2017S2/thesecondhome" class="fa fa-github"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6 column">
+            <br>
+            <br>
+            <br>
+            <img alt="140x140" src="../Image/youthhead.jpg" width="400" height="60"/>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <br>
+        <br>
+        <div class = "panel panel-default">
+            <a data-toggle="collapse" href="#overview" aria-expanded="false" aria-controls="overview">
+                <div class="panel-heading w3-container w3-light-grey">
+                    About The Second Home Project
+                </div>
+            </a>
+            <div class="panel-body" id="overview">
+                <p>“The Second Home” is a web based application which can be used by schools to potentially identify students who may fall into homelessness and provide information to teachers regarding support services currently available for such students.</p>
+                <p>The 2011 census by Australian Bureau of Statistics(ABS) estimates that there are 105237 homeless people in Australia, of which 27% are under 18 years of age. Studies have shown that homelessness is damaging to the health and well-being of children, with constant mobility and uncertainty affecting their ability to learn and engage with school. Schooling and proper education is key to save them from the clutches of homelessness.</p>
+                <p>The proposed web application which is aimed to be used by teachers in schools will lay down important indicators, that studies have shown to be directly or indirectly associated with homelessness in school going children, that can be used to identify any students who may be in need of assistance. The application will list out support services that are available for students. The application will also list some initiatives that can be taken up by school to help students who are experiencing some form of homelessness.</p>
+
+            </div>
+        </div>
+        <div class = "panel panel-default">
+            <a data-toggle="collapse" href="#team" aria-expanded="false" aria-controls="team">
+                <div class="panel-heading w3-container w3-light-grey">
+                    Team Y-Nots
+                </div>
+            </a>
+            <div class="panel-body" id="team">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="w3-card-4 w3-center w3-hover-teal">
+                            <div class="w3-container w3-center">
+                                Roshan
+                            </div>
+                            <img src="../Image/roshan.PNG" >
+                            <div class="w3-container w-right">
+                                <ul class="w3-center">
+                                    <li>Developer</li>
+                                    <li>Master of Information Technology Student,</li>
+                                    <li>Monash University</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="w3-card-4 w3-center w3-hover-teal">
+                            <div class="w3-container w3-center">
+                                Yang
+                            </div>
+                            <img src="../Image/yang.PNG" class="image">
+
+                            <div class="w3-container w-right">
+                                <ul class="w3-center">
+                                    <li>Developer</li>
+                                    <li>Master of Information Technology Student,</li>
+                                    <li>Monash University</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"><br /><br /></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="w3-card-4 w3-center w3-hover-teal">
+                            <div class="w3-container w3-center">
+                                Cary
+                            </div>
+                            <img src="../Image/cary.PNG" class="image">
+
+                            <div class="w3-container w-right">
+                                <ul class="w3-center">
+                                    <li>Business Analyst</li>
+                                    <li>Master of BIS Student,</li>
+                                    <li>Monash University</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="w3-card-4 w3-center w3-hover-teal">
+                            <div class="w3-container w3-center">
+                                Han
+                            </div>
+                            <img src="../Image/han.PNG" class="image">
+
+                            <div class="w3-container w-right">
+                                <ul class="w3-center">
+                                    <li>Business Analyst</li>
+                                    <li>Master of BIS Student,</li>
+                                    <li>Monash University</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class = "panel panel-default">
+            <a data-toggle="collapse" href="#references" aria-expanded="false" aria-controls="collapseExample">
+                <div class="panel-heading w3-container w3-light-grey">
+                    References and Data Sources
+                </div>
+            </a>
+            <div class="panel-body" id="references">
+                <p>The following are the data sources referenced while building the application:</p>
+                <div class="w3-text-blue">
+                    <ul>
+                        <li><a href="http://www.homelessnessaustralia.org.au">Homelessness Australia</a></li>
+                        <li><a href="http://www.abs.gov.au/ausstats/abs@.nsf/Latestproducts/2049.0Main%20Features22011?opendocument&tabname=Summary&prodno=2049.0&issue=2011&num=&view=">Australian Bureau of Statistics' Summary of Findings on Homelessness(Census 2011)</a></li>
+
+                    </ul>
+                </div>
+                <p>Disclaimer: Most of the data used are part of the Census 2011. The latest was census conducted in 2016 and the findings are expected to be released in 2016 as per ABS website. It is believed that the current census data may be even more alarming in terms of homelessness.
+                    Team Y-Not has not mis represented any information, and all the information are taken from the data sources given above.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-2 column">
+        </div>
+        <div class="col-md-2 column">
+        </div>
+        <div class="col-md-2 column">
+        </div>
+        <div class="col-md-2 column">
+        </div>
+        <div class="col-md-2 column">
+        </div>
+        <div class="col-md-2 column">
+            <span class="label label-default"> ©Team Y-Nots</span>
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="https://github.com/MonashIE2017S2/thesecondhome" class="fa fa-github"></a>
+            <a href="#" class="fa fa-instagram"></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

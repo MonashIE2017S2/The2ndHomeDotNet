@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title - The Second Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/JS/jquery-3.2.1.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+    <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.3.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-2 column">
+            <br>
+            <br>
+            <img alt="200x68" src="~/Image/second-home.jpg" />
+        </div>
+        <div class="col-md-1 column"></div>
+        <div class="col-md-3 column">
+            <br>
+            <br>
+            <br>
+            <ul class="breadcrumb">
+                <li><a href="~/">Home</a></li>
+                <li><a href="~/About">About</a></li>
+                <li><a href="~/Contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <br>
+            <br>
+            <img alt="140x140" src="~/Image/youthhead.jpg" width="400" height="80" />
+        </div>
+        <div class="col-md-2 column">
+            <br>
+            <br>
+            <br>
+            <section id="login">
+                @if (WebSecurity.IsAuthenticated)
+                {
+                    <text>
+                        Hello, <a class="email" href="~/Account/Manage" title="Manage">@WebSecurity.CurrentUserName</a>!
+                        <form id="logoutForm" action="~/Account/Logout" method="post">
+                            @AntiForgery.GetHtml()
+                            <a class="btn btn-primary btn-xs" href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
+                        </form>
+                    </text>
+                }
+                else
+                {
+                    <ul>
+                        <a class="btn btn-primary btn-xs" href="~/Account/Register">Register</a>
+                        <br>
+                        <a class="btn btn-primary btn-xs" href="~/Account/Login">Log  in</a>
+                    </ul>
+                }
+            </section>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-2 column">
+            <br>
+            <br>
+            <div class="row">
+                <hr class="hr-primary" />
+                <ol class="breadcrumb bread-primary ">
+                    <button href="#" class="btn btn-primary"><i class="fa fa-newspaper-o"></i> Education News</button>
+                </ol>
+            </div>
+            <div class="row">
+                <hr class="hr-danger" />
+                <ol class="breadcrumb bread-danger">
+                    <button href="#" class="btn btn-danger"><i class="fa fa-paw"></i> Entertainment</button>
+                </ol>
+            </div>
+            <div class="row">
+                <hr class="hr-success" />
+                <ol class="breadcrumb bread-success">
+                    <button href="#" class="btn btn-success"><i class="fa fa-life-ring"></i> Sports</button>
+                </ol>
+            </div>
+            <div class="row">
+                <hr class="hr-warning" />
+                <ol class="breadcrumb bread-warning">
+                    <button href="#" class="btn btn-warning"><i class="fa fa-facebook-square"></i> Social Network</button>
+                </ol>
+            </div>
+        </div>
+        <div class="col-md-10 column">
+            <br>
+            <br>
+            <div id="body">
+                @RenderSection("featured", required: false)
+                <section class="content-wrapper main-content clear-fix">
+                    @RenderBody()
+                </section>
+            </div>
+            @RenderSection("Scripts", required: false)
+        </div>
+    </div>
+</div>
+</body>
+</html>

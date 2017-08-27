@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Second Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="JS/jquery-3.2.1.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/font-awesome.css">
+    <link rel="stylesheet" href="../CSS/ProgressSteps.css">
+    <script src="../JS/Chart.js"></script>
+    <script src="../JS/Modals.js"></script>
+    <script src="../JS/jquery-3.2.1.js"></script>
+    <script src="../JS/survey.jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/ProgressSteps.css">
+    <link rel="stylesheet" href="../CSS/bootstrap.css">
+    <link rel="stylesheet" href="../CSS/quiz.css">
+    <style>
+        @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+        hr {
+            height: 4px;
+            margin-left: 15px;
+            margin-bottom:-3px;
+        }
+        .hr-warning{
+            background-image: -webkit-linear-gradient(left, rgba(210,105,30,.8), rgba(210,105,30,.6), rgba(0,0,0,0));
+        }
+        .hr-success{
+            background-image: -webkit-linear-gradient(left, rgba(15,157,88,.8), rgba(15, 157, 88,.6), rgba(0,0,0,0));
+        }
+        .hr-primary{
+            background-image: -webkit-linear-gradient(left, rgba(66,133,244,.8), rgba(66, 133, 244,.6), rgba(0,0,0,0));
+        }
+        .hr-danger{
+            background-image: -webkit-linear-gradient(left, rgba(244,67,54,.8), rgba(244,67,54,.6), rgba(0,0,0,0));
+        }
+
+        .breadcrumb {
+            background: rgba(245, 245, 245, 0);
+            border: 0px solid rgba(245, 245, 245, 1);
+            border-radius: 25px;
+            display: block;
+        }
+
+        .btn-bread{
+            margin-top:10px;
+            font-size: 12px;
+
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-2 column">
+            <br>
+            <br>
+            <img alt="200x68" src="../Image/second-home.jpg" />
+        </div>
+        <div class="col-md-4 column">
+            <br>
+            <br>
+            <br>
+            <ul class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    Home
+                </li>
+                <li>
+                    <a href="Views/FactsGrid.html">Facts</a>
+                </li>
+                <li>
+                    <a id="modal-137380" href="#modal-container-137380" data-toggle="modal">Quiz</a>
+                    <div class="modal fade" id="modal-container-137380" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h2 class="modal-title" id="myModalLabel">
+                                        Introduction
+                                    </h2>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <li>
+                                            This quiz is design for the user to identify the kids who will experience homelessness.
+                                        </li>
+                                        <li>
+                                            Your answer will be recorded and analyzed.
+                                        </li>
+                                        <li>
+                                            We also ensure that your privacy will not be leaked.
+                                        </li>
+                                        <li>
+                                            Once your answers uploaded is identified as high-risk target, we will give you the opportunity to report this situation.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary" onClick = "window.location.href=('Views/Quiz.html')">Yes, I know it</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="Views/About.html">About</a>
+                </li>
+                <li>
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="https://github.com/MonashIE2017S2/thesecondhome" class="fa fa-github"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6 column">
+            <br>
+            <br>
+            <br>
+            <img alt="140x140" src="../Image/youthhead.jpg" width="400" height="60"/>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="row bs-wizard" style="border-bottom:0;">
+
+            <div class="col-xs-3 bs-wizard-step complete">
+                <div class="text-center bs-wizard-stepnum">Start</div>
+                <div class="progress"><div class="progress-bar"></div></div>
+                <a href="FactsGrid.html" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center"></div>
+            </div>
+
+            <div class="col-xs-3 bs-wizard-step complete"><!-- complete -->
+                <div class="text-center bs-wizard-stepnum">Facts</div>
+                <div class="progress"><div class="progress-bar"></div></div>
+                <a href="FactsGrid.html" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center"></div>
+            </div>
+
+            <div class="col-xs-3 bs-wizard-step disabled"><!-- complete -->
+                <div class="text-center bs-wizard-stepnum">Quiz</div>
+                <div class="progress"><div class="progress-bar"></div></div>
+                <a href="#" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center"></div>
+            </div>
+
+            <div class="col-xs-3 bs-wizard-step disabled"><!-- active -->
+                <div class="text-center bs-wizard-stepnum">Report</div>
+                <div class="progress"><div class="progress-bar"></div></div>
+                <a href="#" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div id="surveyElement"></div>
+        <div id="surveyResult"></div>
+        <script src="../JS/quiz.js"></script>
+    </div>
+    <div id="alert-sad" hidden>
+        <div id="alert1">
+            <div id="alert-content1">
+                <img class="emoji" src="../Image/sad.png">
+                <p>Looks like the child needs help</p>
+            </div>
+            <button type="button" class="btn btn-primary" onClick = "window.location.href=('../index.html')">OK</button>
+        </div>
+    </div>
+    <div id="alert-happy" hidden>
+        <div id="alert2">
+            <div id="alert-content2">
+                <img class="emoji" src="../Image/happy.png">
+                <p>No reason to be concerned</p>
+            </div>
+            <button type="button" class="btn btn-primary" onClick = "window.location.href=('../index.html')">OK</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
