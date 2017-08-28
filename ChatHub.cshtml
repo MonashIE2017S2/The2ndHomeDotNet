@@ -4,10 +4,57 @@
 }
 
 <head>
-    <script src="Scripts/jquery-3.1.1.min.js"></script>
     <script src="Scripts/jquery.signalR-2.2.2.min.js"></script>
     <script src="signalR/hubs"></script>
-    <link href="~/CSS/ChatHub.css" rel="stylesheet" type="text/css" />
+    <style>
+        .c-list {
+            padding: 0px;
+            min-height: 44px;
+        }
+        .title {
+            display: inline-block;
+            font-size: 1.7em;
+            font-weight: bold;
+            padding: 5px 15px;
+        }
+        ul.c-controls {
+            list-style: none;
+            margin: 0px;
+            min-height: 44px;
+        }
+
+        ul.c-controls li {
+            margin-top: 8px;
+            float: left;
+        }
+
+        ul.c-controls li a {
+            font-size: 1.7em;
+            padding: 11px 10px 6px;   
+        }
+        ul.c-controls li a i {
+            min-width: 24px;
+            text-align: center;
+        }
+
+        ul.c-controls li a:hover {
+            background-color: rgba(51, 51, 51, 0.2);
+        }
+
+        .c-toggle {
+            font-size: 1.7em;
+        }
+
+        .name {
+            font-size: 1.7em;
+            font-weight: 700;
+        }
+
+        .c-info {
+            padding: 5px 10px;
+            font-size: 1.25em;
+        }
+    </style>
 </head>
 
 <script>
@@ -71,45 +118,45 @@
     //傳送聊天內容至Server
     function send() {
         var id = $('#lblTalkToWhoId').text();
-
         if (id == "all") {
             chat.server.send($('#txtMsg').val());
         } else {
             chat.server.sendOne(id, $('#txtMsg').val());
         }
-
         $('#txtMsg').val('');
     }
-
 </script>
 
 <div class="container">
+    <br>
     <div class="row">
-        <br>
         <div class="col-xs-6 col-sm-offset-0 col-sm-5">
-            <div class="panel panel-default" style="height: 400px">
-                <div class="panel-heading c-list">
-                    <span class="title">Chat Room</span>
+            <div class="pre-scrollable">
+                <div class="panel panel-default" style="height: 340px">
+                    <div class="panel-heading c-list">
+                        <span class="title">Chat Room</span>
+                    </div>
+                    <ul id="chatRoom"></ul>
                 </div>
-                <ul id="chatRoom"></ul>
             </div>
         </div>
-
         <div class="col-xs-6 col-sm-offset-0 col-sm-3">
-            <div class="panel panel-default" style="height: 400px">
-                <div class="panel-heading c-list">
-                    <span class="title">Online Contacts</span>
+            <div class="pre-scrollable">
+                <div class="panel panel-default" style="height: 340px">
+                    <div class="panel-heading c-list">
+                        <span class="title">Online Contacts</span>
+                    </div>
+                    <ul class="list-group" id="contact-list">
+                        <li class="list-group-item">
+                            <ul id="lstUser">
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-
-                <ul class="list-group" id="contact-list">
-                    <li class="list-group-item">
-                        <ul id="lstUser">
-                        </ul>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
+    <br/>
     <div class="row">
         <div class="col-xs-6 col-sm-offset-2 col-sm-5">
             Send To:

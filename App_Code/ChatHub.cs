@@ -17,7 +17,7 @@ public class ChatHub : Hub
     public void Send(string message)
     {
         var user = Users.ConnectionIds.Where(u => u.Key == Context.ConnectionId).FirstOrDefault();
-        Clients.All.show(user.Value + "說：" + message);
+        Clients.All.show(user.Value + " Speak: " + message);
     }
 
     //傳送訊息給某人
@@ -26,7 +26,7 @@ public class ChatHub : Hub
         var from = Users.ConnectionIds.Where(u => u.Key == Context.ConnectionId).FirstOrDefault();
         //var to = Users.ConnectionIds.Where(u => u.Key == id).FirstOrDefault();
 
-        Clients.Client(id).show("<span style='color:red'>" + from.Value + "密你:" + message + "</span>");
+        Clients.Client(id).show("<span style='color:red'>" + from.Value + " Speak to you secretly: " + message + "</span>");
     }
 
     //新使用者連線進入聊天室
@@ -39,7 +39,7 @@ public class ChatHub : Hub
         Clients.All.getList(Users.ConnectionIds.Select(u => new { id = u.Key, name = u.Value }).ToList());
 
         //通知其他人，有新使用者
-        Clients.Others.show("歡迎" + name + "進入聊天室");
+        Clients.Others.show(" Welcome " + name + " enter the chat room");
     }
 
     //當使用者斷線時呼叫
