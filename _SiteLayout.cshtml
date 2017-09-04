@@ -4,12 +4,13 @@
     <title>@Page.Title - The Second Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.2">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/CSS/Animation.css">
     <script src="~/JS/jquery-3.2.1.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
-    <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/JS/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css">
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="~/JS/Modals.js"></script>
     <style>
          hr {
              height: 4px;
@@ -28,6 +29,29 @@
         .hr-danger{
             background-image: -webkit-linear-gradient(left, rgba(244,67,54,.8), rgba(244,67,54,.6), rgba(0,0,0,0));
         }
+        .hr-info{
+             background-image: -webkit-linear-gradient(left, rgba(86,192,224,.8), rgba(86,192,224,.6), rgba(0,0,0,0));
+         }
+        .btn-primary {
+            padding: 10px 12px;
+            text-align: left;
+        }
+        .btn-danger {
+             padding: 10px 6px;
+             text-align: left;
+        }
+        .btn-success {
+             padding: 10px 33px;
+             text-align: left;
+        }
+        .btn-info {
+             padding: 10px 5px;
+             text-align: left;
+        }
+        .btn-warning {
+             padding: 10px 18px;
+             text-align: left;
+        }
 
         .breadcrumb {
             background: rgba(245, 245, 245, 0);
@@ -39,102 +63,157 @@
         .btn-bread{
             margin-top:10px;
             font-size: 12px;
-
             border-radius: 3px;
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-2 column">
-            <br>
-            <br>
-            <img alt="200x68" src="~/Image/second-home.jpg" />
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-2 column">
+                <br>
+                <br>
+                <img alt="200x68" src="~/Image/second-home.jpg" />
+            </div>
+            <div class="col-md-1 column"></div>
+            <div class="col-md-3 column">
+                <br>
+                <br>
+                <br>
+                <ul class="breadcrumb">
+                    <li><a href="~/Default.cshtml"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+                    <li><a href="~/About.cshtml">About</a></li>
+                    <li><a href="~/Contact.cshtml">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <br>
+                <br>               
+@*
+                <img alt="140x140" src="~/Image/Banner.jpg" width="570" height="80" />
+*@
+               
+                <svg viewBox="0 0 750 130">
+                    <symbol id="s-text">
+                        <text text-anchor="middle" x="50%" y="50%">Keep every kid sheltered!</text>
+                    </symbol>
+
+                    <g class = "g-ants">
+                        <use xlink:href="#s-text" class="text-copy"></use>
+                        <use xlink:href="#s-text" class="text-copy"></use>
+                        <use xlink:href="#s-text" class="text-copy"></use>
+                        <use xlink:href="#s-text" class="text-copy"></use>
+                        <use xlink:href="#s-text" class="text-copy"></use>
+                    </g>
+                </svg>
+            </div>
         </div>
-        <div class="col-md-1 column"></div>
-        <div class="col-md-3 column">
-            <br>
-            <br>
-            <br>
-            <ul class="breadcrumb">
-                <li><a href="~/Default"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
-                <li><a href="~/About">About</a></li>
-                <li><a href="~/Contact">Contact</a></li>
-            </ul>
-        </div>
-        <div class="col-md-4">
-            <br>
-            <br>
-            <img alt="140x140" src="~/Image/youthhead.jpg" width="400" height="80" />
-        </div>
-        <div class="col-md-2 column">
-            <br>
-            <br>
-            <br>
-            <section id="login">
-                @if (WebSecurity.IsAuthenticated)
-                {
-                    <text>
-                        Hello, <a class="email" href="~/Account/Manage.cshtml" title="Manage">@WebSecurity.CurrentUserName</a>!
-                        <form id="logoutForm" action="~/Account/Logout.cshtml" method="post">
-                            @AntiForgery.GetHtml()
-                            <a class="btn btn-primary btn-xs" href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
-                        </form>
-                    </text>
-                }
-                else
-                {
-                    <ul>
-                        <a class="btn btn-primary btn-xs" href="~/Account/Register.cshtml">Register</a>
-                        <br>
-                        <a class="btn btn-primary btn-xs" href="~/Account/Login.cshtml">Log in</a>
-                    </ul>
-                }
-            </section>
+        <div class="row clearfix">
+            <div class="col-md-2 column">
+                <br>
+                <br>
+                <div class="row">
+                    <hr class="hr-primary" />
+                    <ol class="breadcrumb bread-primary">
+                        <a href="~/EducationalOutcome.cshtml" class="btn btn-primary"><i class="fa fa-bar-chart"></i> Educational Outcome </a>
+                    </ol>
+                </div>
+                <div class="row">
+                    <hr class="hr-danger" />
+                    <ol class="breadcrumb bread-danger">
+                        <a id="modal-137380" href="#modal-container-137380" data-toggle="modal" class="btn btn-danger"> <i class="fa fa-flag"></i> Identify Vulnerable Kids</a>
+                        <div class="modal fade" id="modal-container-137380" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h2 class="modal-title" id="myModalLabel">
+                                            Introduction
+                                        </h2>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ul>
+                                            <li>
+                                                This quiz is design for the user to identify the kids who will experience homelessness.
+                                            </li>
+                                            <li>
+                                                Your answer will be recorded and analyzed.
+                                            </li>
+                                            <li>
+                                                We also ensure that your privacy will not be leaked.
+                                            </li>
+                                            <li>
+                                                Once your answers uploaded is identified as high-risk target, we will give you the opportunity to report this situation.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary" onclick="location.href = 'IdentifyStudent.cshtml';">Yes, I know it</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ol>
+                </div>
+                <div class="row">
+                    <hr class="hr-success" />
+                    <ol class="breadcrumb bread-success">
+                        <a href="~/TeacherHelper.cshtml" class="btn btn-success"><i class="fa fa-paw"></i> Teacher Helper</a>
+                    </ol>
+                </div>
+                <div class="row">
+                    <hr class="hr-info" />
+                    <ol class="breadcrumb bread-purple">
+                        <a href="~/ParentsCommunication2.cshtml" class="btn btn-info"><i class="fa fa-envelope"></i> Parents Communication</a>
+                    </ol>
+                </div>
+                <div class="row">
+                    <hr class="hr-warning" />
+                    <ol class="breadcrumb bread-warning">
+                        <a id="modal-2" href="#modal-container-2" data-toggle="modal" class="btn btn-warning"> <i class="fa fa-comments"></i> Teachers' Chat Hub</a>
+                        <div class="modal fade" id="modal-container-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h2 class="modal-title" id="myModalLabel">
+                                            Code of Conduct
+                                        </h2>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ul>
+                                            <li>
+                                                This channel is made for communication among teachers only.
+                                            </li>
+                                            <li>
+                                                Leaking personal details of children is forbidden.
+                                            </li>
+                                            <li>
+                                                We recommend you to use pseudonym in this channel.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary" onclick="location.href = 'ChatHub.cshtml';">Yes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-md-10 column">
+                <br>
+                <br>
+                <div id="body">
+                    @RenderSection("featured", required: false)
+                    <section class="content-wrapper main-content clear-fix">
+                        @RenderBody()
+                    </section>
+                </div>
+                @RenderSection("Scripts", required: false)
+            </div>
         </div>
     </div>
-    <div class="row clearfix">
-        <div class="col-md-2 column">
-            <br>
-            <br>
-            <div class="row">
-                <hr class="hr-primary" />
-                <ol class="breadcrumb bread-primary">
-                    <button href="#" class="btn btn-primary"><i class="fa fa-newspaper-o"></i> Education News</button>
-                </ol>
-            </div>
-            <div class="row">
-                <hr class="hr-danger" />
-                <ol class="breadcrumb bread-danger">
-                    <button href="#" class="btn btn-danger"><i class="fa fa-paw"></i> Entertainment</button>
-                </ol>
-            </div>
-            <div class="row">
-                <hr class="hr-success" />
-                <ol class="breadcrumb bread-success">
-                    <a href="~/ParentsLink.cshtml" class="btn btn-success"><i class="fa fa-life-ring"></i> Parents Link</a>
-                </ol>
-            </div>
-            <div class="row">
-                <hr class="hr-warning" />
-                <ol class="breadcrumb bread-warning">
-                    <a href="~/ChatHub.cshtml" class="btn btn-warning"><i class="fa fa-facebook-square"></i> Chat Hub </a>
-                </ol>
-            </div>
-        </div>
-        <div class="col-md-10 column">
-            <br>
-            <br>
-            <div id="body">
-                @RenderSection("featured", required: false)
-                <section class="content-wrapper main-content clear-fix">
-                    @RenderBody()
-                </section>
-            </div>
-            @RenderSection("Scripts", required: false)
-        </div>
-    </div>
-</div>
 </body>
 </html>

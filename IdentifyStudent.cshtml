@@ -1,0 +1,37 @@
+﻿@{
+    Page.Title = "Identify Vulnerable Kids";
+    Layout = "~/_SiteLayout.cshtml";
+}
+<script src="~/JS/survey.jquery.js"></script>
+<script src="~/JS/survey.jquery.js"></script>
+<div class="container">
+    <br>
+    <div class="col-md-8 column">
+        <div class="panel panel-danger">
+            <div class="panel-heading">Vulnerable Identifier</div>
+            <div class="panel-body" style="height: 410px; word-break: break-all; overflow-y: scroll;">
+                <div class="row clearfix">
+                    <div id="surveyElement"></div>
+                    <div id="surveyResult"></div>
+                    <script src="~/JS/quiz.js"></script>
+                </div>
+                <div id="alert-sad" hidden>
+                    <div id="alert1">
+                        <div id="alert-content1">
+                            <img class="emoji" src="~/Image/sad.png" width="100px" height="100px">
+                            <p>Looks like the child needs help</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="alert-happy" hidden>
+                    <div id="alert2">
+                        <div id="alert-content2">
+                            <img class="emoji" src="~/Image/happy.png" width="100px" height="100px">
+                            <p>No reason to be concerned</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
