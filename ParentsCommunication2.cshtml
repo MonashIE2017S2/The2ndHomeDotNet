@@ -12,32 +12,37 @@
                     <div class="panel-heading">Email Builder</div>
                     <div class="panel-body" style="height: 350px; word-break: break-all; overflow-y: scroll;">
                         <p>
-                            Receiver Email: <input id="receiverEmail" oninput="Email.changeReceiverEmail()"></input>
+                            Receiver Email: <input id="receiverEmail" oninput="Email.changeReceiverEmail()" style="float:right"></input>
                             <br>
                             <br>
-                            Your Name: <input id="name" oninput="Email.changeName()"></input>
+                            Your Name: <input id="name" oninput="Email.changeName()" style="float:right"></input>
                             <br>
                             <br>
-                            School Name: <input id="school" oninput="Email.changeSchool()"></input>
+                            School Name: <input id="school" oninput="Email.changeSchool()" style="float:right"></input>
                             <br>
                             <br>
-                            Parents Name: <input id="receiver" oninput="Email.changeReceiver()"></input>
+                            Parents Name: <input id="receiver" oninput="Email.changeReceiver()" style="float:right"></input>
                             <br>
                             <br>
-                            Child Name: <input id="childname" oninput="Email.changeChildName()"></input>
+                            Child Name: <input id="childname" oninput="Email.changeChildName()" style="float:right"></input>
+                            <br>
+                            <br>
+                            Event Location: <input id="eventLocation" oninput="Email.changeEventLocation()" style="float:right"></input>
+                            <br>
                             <br>
                             <br>
                             Event:
-                            <input type="radio" id="event1" name="Event" value="Outdoor Activity" onclick="Email.changeEvent()" />
-                            <label for="event1">Outdoor Activity</label>
-                            <input type="radio" id="event2" name="Event" value="Indoor Activity" onclick="Email.changeEvent()" />
-                            <label for="event2">Indoor Activity</label>
+                            <label for="event1" style="float:right">Outdoor Activity  </label>
+                            <input type="radio" id="event1" name="Event" value="Outdoor Activity" onclick="Email.changeEvent()" style="float:right"/>
+                            <label for="event2" style="float:right">Indoor Activity</label>
+                            <input type="radio" id="event2" name="Event" value="Indoor Activity" onclick="Email.changeEvent()" style="float:right"/>
                             <br>
                             <br>
-                            Event Date: <input type="date" id="eventdate" oninput="Email.changeEventDate()"></input>
+                            Event Date: <input type="date" id="eventdate" oninput="Email.changeEventDate()" style="float:right"></input>
                             <br>
                             <br>
-                            Invite Parents:
+                            <br>
+                            Proposal to:
                             <input type="radio" id="invite1" name="Invite" value="Father" onclick="Email.changeInvite()" />
                             <label for="invite1">Father</label>
                             <input type="radio" id="invite2" name="Invite" value="Mother" onclick="Email.changeInvite()" />
@@ -74,6 +79,7 @@
         this.event = event;
         this.eventdate = eventdate;
         this.invite = "";
+        this.eventLocation = "";
 
         this.changeReceiverEmail = () => {
             this.receiverEmail = document.getElementById("receiverEmail").value;
@@ -100,9 +106,19 @@
             this.generate();
         }
 
+        this.changeReceiver = () => {
+            this.receiver = document.getElementById("receiver").value;
+            this.generate();
+        }
+
         this.changeEventDate = () => {
             this.eventdate = document.getElementById("eventdate").value;
             console.log(document.getElementById("eventdate").value)
+            this.generate();
+        }
+
+        this.changeEventLocation = () => {
+            this.eventLocation = document.getElementById("eventLocation").value;
             this.generate();
         }
 
@@ -141,13 +157,13 @@
 
             switch(selected) {
                 case "Father":
-                    this.invite = "We sincerely invite the child's father to participate in this event. ";
+                    this.invite = "I really hope that " + this.childname + "'s father can take " + this.childname + " to that activity. Both you and your child will have greate fun from that.";
                     break;
                 case "Mother":
-                    this.invite = "We sincerely invite the child's mother to participate in this event. ";
+                    this.invite = "I really hope that " + this.childname + "'s mother can take " + this.childname + " to that activity. Both you and your child will have greate fun from that.";
                     break;
                 case "Both":
-                    this.invite = "We sincerely invite the child's parents to participate in this event. ";
+                    this.invite = "I really hope that " + this.childname + "'s parents can take " + this.childname + " to that activity. Both you and your child will have greate fun from that.";
                     break;
                 case "None":
                     this.invite = " ";
@@ -168,7 +184,15 @@
             this.application2 = "Email from school for your kid, " + this.childname;
 
             var line1 = "Dear " + this.receiver + ",";
-            var line2 = "I am a teacher of your child " + this.childname + " in " + this.school + "." + "We want to organize" + this.event + " on " + this.eventdate + "."
+            var line2 = "I am a teacher of your child " +
+                this.childname +
+                " in " +
+                this.school +
+                "." + " By my understanding of your child's current situation, your child have not had a parent-child avtivity for a long time. " +
+                "I notice that there will be " +
+                this.event +
+                " on " +
+                this.eventdate + " in " + this.eventLocation + ".";
             var line3 = this.invite;
             var line5 = this.last;
             var line6 = this.name;
