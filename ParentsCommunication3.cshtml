@@ -13,40 +13,48 @@
                     <div class="panel-heading">Email Builder</div>
                     <div class="panel-body" style="height: 350px; word-break: break-all; overflow-y: scroll;">
                         <p>
-                            Receiver Email Address: <input id="receiverEmail" oninput="Email.changeReceiverEmail()"></input>
+                            Report to:
+                            <label for="report1" style="float:right">Salvationarmy  </label>
+                            <input type="radio" id="report1" name="Report" value="Salvationarmy" onclick="Email.changeAgency()" style="float:right" />
+                            <label for="report2" style="float:right">YouthOfftheStreets  </label>
+                            <input type="radio" id="report2" name="Report" value="YouthOfftheStreets" onclick="Email.changeAgency()" style="float:right" />
                             <br>
                             <br>
-                            Your Name: <input id="name" oninput="Email.changeName()"></input>
+                            Your Name: <input id="name" oninput="Email.changeName()" style="float: right"></input>
                             <br>
                             <br>
-                            School Name: <input id="school" oninput="Email.changeSchool()"></input>
+                            School Name: <input id="school" oninput="Email.changeSchool()" style="float: right"></input>
                             <br>
                             <br>
-                            Parents Name: <input id="receiver" oninput="Email.changeReceiver()"></input>
+                            Child Name: <input id="childname" oninput="Email.changeChildName()" style="float: right"></input>
                             <br>
                             <br>
-                            Child Name: <input id="childname" oninput="Email.changeChildName()"></input>
+                            Address of the kid: <input id="Address" oninput="Email.changeAddress()" style="float:right"></input>
                             <br>
                             <br>
-                            Event:
-                            <input type="radio" id="event1" name="Event" value="Outdoor Activity" onclick="Email.changeEvent()" />
-                            <label for="event1">Outdoor Activity</label>
-                            <input type="radio" id="event2" name="Event" value="Indoor Activity" onclick="Email.changeEvent()" />
-                            <label for="event2">Indoor Activity</label>
+                            Affair:
+                            <label for="affair1" style="float: right">Absence due to Domestic Violence</label>
+                            <input type="radio" id="affair1" name="Affair" value="Domestic Violence" onclick="Email.changeAffair()" style="float: right" />
+                            <label for="affair2" style="float: right">Absence due to Financial Problem</label>
+                            <input type="radio" id="affair2" name="Affair" value="Absence due to Financial Problem" onclick="Email.changeAffair()" style="float: right" />
                             <br>
                             <br>
-                            Event Date: <input type="date" id="eventdate" oninput="Email.changeEventDate()"></input>
+                            <br>
+                            Contact of the Kid:
+                            <br>
+                            <input type="radio" id="contact1" name="Contact" value="Father" onclick="Email.changeContact()" />
+                            <label for="contact1">Father's Mobile</label>
+                            <input type="radio" id="contact2" name="Contact" value="Mother" onclick="Email.changeContact()" />
+                            <label for="contact2">Mother's Mobiel</label>
+                            <input type="radio" id="contact3" name="Contact" value="Family" onclick="Email.changeContact()" />
+                            <label for="contact3">LandLine</label>
+                            <br>
+                            Contact Name: <input id="contactName" oninput="Email.changeContactName()" style="float: right"></input>
                             <br>
                             <br>
-                            Invite Parents:
-                            <input type="radio" id="invite1" name="Invite" value="Father" onclick="Email.changeInvite()" />
-                            <label for="invite1">Father</label>
-                            <input type="radio" id="invite2" name="Invite" value="Mother" onclick="Email.changeInvite()" />
-                            <label for="invite2">Mother</label>
-                            <input type="radio" id="invite3" name="Invite" value="Both" onclick="Email.changeInvite()" />
-                            <label for="invite3">Both</label>
-                            <input type="radio" id="invite4" name="Invite" value="None" onclick="Email.changeInvite()" />
-                            <label for="invite4">None</label>
+                            Contact Number: <input id="contactNumber" oninput="Email.changeContactNumber()" style="float:right"></input>
+                            <br>
+                            <br>
                         </p>
                     </div>
                 </div>
@@ -64,19 +72,80 @@
     </div>
 </div>
 <script>
-    function Email(receiverEmail,name,reveiver,childname,school,event,eventdate) {
+    function Email(name) {
         // Changeable
-        this.receiverEmail = receiverEmail;
         this.name = name;
-        this.receiver = reveiver;
-        this.childname = childname;
-        this.school = school;
-        this.event = event;
-        this.eventdate = eventdate;
-        this.invite = "";
+        this.receiver = "";
+        this.childname = "";
+        this.school = "";
+        this.event = "";
+        this.Location = "";
+        this.contact = "";
+        this.Mobile = "";
+        this.ParentName = "";
 
-        this.changeReceiverEmail = () => {
-            this.receiverEmail = document.getElementById("receiverEmail").value;
+        this.changeContactNumber = () => {
+            this.Mobile = document.getElementById("contactNumber").value;
+            this.generate();
+        }
+
+        this.changeContactName = () => {
+            this.ParentName = document.getElementById("contactName").value;
+            this.generate();
+        }
+
+        this.changeAddress = () => {
+            this.Location = document.getElementById("Address").value;
+            this.generate();
+        }
+
+        this.changeContact = () => {
+            var contacts = document.getElementsByName("Contact");
+            var selectedcontact = "";
+
+            for (var i = 0; i < contacts.length; i++) {
+                if (contacts[i].checked)
+                    selectedcontact = contacts[i].value;
+            }
+
+            switch (selectedcontact) {
+                case "Father":
+                    this.contact = "I know that you can make a contact with the father of kid, ";
+                    break;
+                case "Mother":
+                    this.contact = "I know that you can make a contact with Mother of the kid, ";
+                    break;
+                case "Family":
+                    this.contact = "I know that you can make a contact with landline, the number is ";
+                    break;
+                default:
+                    this.contact = " ";
+            }
+            this.generate();
+        }
+
+        this.changeAgency = () => {
+            var events = document.getElementsByName("Report");
+            var selectedevent = "None";
+
+            for (var i = 0; i < events.length; i++) {
+                if (events[i].checked)
+                    selectedevent = events[i].value;
+            }
+            console.log(selectedevent);
+
+            switch (selectedevent) {
+                case "Salvationarmy":
+                    this.receiverEmail = "nigel.mapes@aus.salvationarmy.org";
+                    this.receiver = "SalvationArmy";
+                    break;
+                case "YouthOfftheStreets":
+                    this.receiverEmail = "info@youthoffthestreets.com.au ";
+                    this.receiver = "YouthOfftheStreets";
+                    break;
+                default:
+                    this.receiverEmail = " ";
+            }
             this.generate();
         }
 
@@ -95,65 +164,25 @@
             this.generate();
         }
 
-        this.changeReceiver = () => {
-            this.receiver = document.getElementById("receiver").value;
-            this.generate();
-        }
-
-        this.changeEventDate = () => {
-            this.eventdate = document.getElementById("eventdate").value;
-            console.log(document.getElementById("eventdate").value)
-            this.generate();
-        }
-
-        this.changeEvent = () => {
-            var events = document.getElementsByName("Event");
+        this.changeAffair = () => {
+            var events = document.getElementsByName("Affair");
             var selectedevent = "None";
 
-            for(var i = 0; i < events.length; i++) {
-                if(events[i].checked)
+            for (var i = 0; i < events.length; i++) {
+                if (events[i].checked)
                     selectedevent = events[i].value;
             }
             console.log(selectedevent);
 
-            switch(selectedevent) {
-                case "Outdoor Activity":
-                    this.event = " an outdoor activity";
+            switch (selectedevent) {
+                case "Domestic Violence":
+                    this.event = " facing a problem of domestic violence and absent from school for one week.";
                     break;
-                case "Indoor Activity":
-                    this.event = " a indoor activity";
+                case "Absence due to Financial Problem":
+                    this.event = " facing a problem of financial and absent from school for one week";
                     break;
                 default:
                     this.event = " ";
-            }
-            this.generate();
-        }
-
-        this.changeInvite = () => {
-            var inviteValue = document.getElementsByName("Invite");
-            var selected;
-
-            for(var i = 0; i < inviteValue.length; i++) {
-                if(inviteValue[i].checked)
-                    selected = inviteValue[i].value;
-            }
-            console.log(selected);
-
-            switch(selected) {
-                case "Father":
-                    this.invite = "We sincerely invite the child's father to participate in this event. ";
-                    break;
-                case "Mother":
-                    this.invite = "We sincerely invite the child's mother to participate in this event. ";
-                    break;
-                case "Both":
-                    this.invite = "We sincerely invite the child's parents to participate in this event. ";
-                    break;
-                case "None":
-                    this.invite = " ";
-                    break;
-                default:
-                    this.invite = " ";
             }
             this.generate();
         }
@@ -164,17 +193,21 @@
         this.generate = () => {
             var space = "<br />" + "<br />"; //"%0D%0A" + "%0D%0A";
             var space2 = "%0D%0A" + "%0D%0A";
-            this.application = "<b> Subject: Email from school for your kid, " + this.childname + "</b>";
-            this.application2 = "Email from school for your kid, " + this.childname;
+            this.application = "<b> Subject: Email from school teacher and seek help for kid. </b>";
+            this.application2 = "Email from school teacher and seek help for kid.";
 
             var line1 = "Dear " + this.receiver + ",";
-            var line2 = "I am a teacher of your child " + this.childname + " in " + this.school + "." + "We want to organize" + this.event + " on " + this.eventdate + "."
-            var line3 = this.invite;
+            var line2 = "I am a teacher " + " in " + this.school + ".";
+            var line3 = "There is a student of mine called " + this.childname + " who may " + this.event;
+            var line4 = "we recommend that you can have a help in your power and put this situation on records." +
+                "The address of this kid is " +
+                this.Location + ".";
+            var line45 = this.contact + this.ParentName + ", whose mobile number is " + this.Mobile;
             var line5 = this.last;
             var line6 = this.name;
 
-            this.content = this.application + space + line1 + space + line2  + space + line3 + space + line5 + space + line6;
-            this.content2 = line1 + space2 + line2 + space2  + line3  + space2 + line5 + space2 + line6;
+            this.content = this.application + space + line1 + space + line2 + space + line3 + space + line4 + space + line45 + space + line5 + space + line6;
+            this.content2 = line1 + space2 + line2 + space2 + line3 + space2 + line4 + space2 + line45 + space2 + line5 + space2 + line6;
 
             this.update(this.content);
         }
@@ -188,6 +221,6 @@
             window.open(link);
         }
     }
-    var Email = new Email("cnyangdengau@gmail.com","Dr Who", "Mr.Harry", "Json", "Marven Primary School","","2017-09-03");
+    var Email = new Email("Dr Who");
     Email.generate();
 </script>

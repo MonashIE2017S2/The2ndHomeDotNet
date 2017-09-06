@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 public class ChatHub : Hub
 {
-    //宣告靜態類別，儲存user清單
+    //Decalre static class and store the user list
     public static class Users
     {
         public static Dictionary<string, string> ConnectionIds = new Dictionary<string, string>();
     }
 
-    //傳送訊息給所有User
+    //Send message to all the Users
     public void Send(string message)
     {
         var user = Users.ConnectionIds.Where(u => u.Key == Context.ConnectionId).FirstOrDefault();
         Clients.All.show(user.Value + " Speak: " + message);
     }
 
-    //傳送訊息給某人
+    //Send message to somebody
     public void SendOne(string id, string message)
     {
         var from = Users.ConnectionIds.Where(u => u.Key == Context.ConnectionId).FirstOrDefault();
@@ -29,21 +29,20 @@ public class ChatHub : Hub
         Clients.Client(id).show("<span style='color:red'>" + from.Value + " Speak to you secretly: " + message + "</span>");
     }
 
-    //新使用者連線進入聊天室
+    //new user access to the ChatRoom
     public void userConnected(string name)
     {
-        //將目前使用者新增至user清單
+        //add new user to the chat hub
         Users.ConnectionIds.Add(Context.ConnectionId, name);
 
-        //發送給所有人，取得user清單
+        //send to all the users the userlist
         Clients.All.getList(Users.ConnectionIds.Select(u => new { id = u.Key, name = u.Value }).ToList());
 
-        //通知其他人，有新使用者
+        //Inform all the users that there is a new user.
         Clients.Others.show(" Welcome " + name + " enter the chat room");
     }
 
-    //當使用者斷線時呼叫
-    //stopCalled是SignalR 2.1.0版新增的參數
+    //when the users offline, it ask for reconnection
     public override Task OnDisconnected(bool stopCalled)
     {
         Clients.Others.removeList(Context.ConnectionId);
