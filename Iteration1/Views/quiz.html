@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <script src="../JS/jquery-3.2.1.js"></script>
+    <script src="../JS/survey.jquery.js"></script>
+    <link rel="stylesheet" href="../CSS/bootstrap.css">
+    <link rel="stylesheet" href="../CSS/quiz.css">
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div>
+            <p>
+                <p>
+                </p>
+            </p>
+        </div>
+        <div class="col-md-12 column">
+            <div class="row clearfix">
+                <div class="col-md-4 column">
+                    <img alt="200x68" src="../Image/second-home.jpg" />
+                </div>
+                <div class="col-md-6 column">
+                </div>
+                <div class="col-md-2 column">
+                </div>
+            </div>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+                <li>
+                    <a href="facts.html">Facts</a>
+                </li>
+                <li>
+                    <a href="visualization.html">Visualization</a>
+                </li>
+                <li class="active" >
+                    Quiz
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+            </ul>
+            <div class="row clearfix">
+                <div id="surveyElement"></div>
+                <div id="surveyResult"></div>
+                <script src="../JS/quiz.js"></script>
+            </div>
+            <div id="alert-sad" hidden>
+                <div id="alert1">
+                    <div id="alert-content1">
+                        <img class="emoji" src="../Image/sad.png">
+                        <p>Looks like the child needs help</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" onClick = "window.location.href=('../index.html')">OK</button>
+                </div>
+            </div>
+            <div id="alert-happy" hidden>
+                <div id="alert2">
+                    <div id="alert-content2">
+                        <img class="emoji" src="../Image/happy.png">
+                        <p>No reason to be concerned</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" onClick = "window.location.href=('../index.html')">OK</button>
+                </div>
+            </div>
+            <div class="jumbotron well">
+                <p>
+                    Check to know if a kid is vulnerable
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

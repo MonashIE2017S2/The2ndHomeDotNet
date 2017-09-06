@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Second Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="JS/jquery-3.2.1.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="JS/Chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row clearfix">
+        <div>
+            <p>
+            <p>
+            </p>
+            </p>
+        </div>
+        <div class="col-md-12 column">
+            <div class="row clearfix">
+                <div class="col-md-4 column">
+                    <img alt="200x68" src="Image/second-home.jpg" />
+                </div>
+                <div class="col-md-6 column">
+                </div>
+                <div class="col-md-2 column">
+                </div>
+            </div>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="active">
+                    Visualization
+                </li>
+                <li>
+                    <a id="modal-137380" href="#modal-container-137380" data-toggle="modal">Quiz</a>
+                    <div class="modal fade" id="modal-container-137380" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h2 class="modal-title" id="myModalLabel">
+                                        Declaration
+                                    </h2>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <li>
+                                            This quiz is design for the user to identify the kids who will experience homelessness.
+                                        </li>
+                                        <li>
+                                            Your answer will be recorded and analyzed.
+                                        </li>
+                                        <li>
+                                            We also ensure that your privacy will not be leaked.
+                                        </li>
+                                        <li>
+                                            Once your answers uploaded is identified as high-risk target, we will give you the opportunity to report this situation.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary" onClick = "window.location.href=('quiz.html')">Yes, I know it</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="btn btn-primary btn-large" disabled>Report(coming soon)</a>
+                </li>
+            </ul>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-2 column">
+            </div>
+            <div class="col-md-2 column">
+            </div>
+            <div class="col-md-2 column">
+                <button type="button" class="btn btn-default btn-block" onClick = "window.location.href=('visualization1.html')">Previous</button>
+            </div>
+            <div class="col-md-2 column">
+                <button type="button" class="btn btn-default btn-block" onClick = "window.location.href=('visualization3.html')">Next</button>
+            </div>
+            <div class="col-md-2 column">
+            </div>
+            <div class="col-md-2 column">
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-1 column">
+            </div>
+            <div class="col-md-10 column">
+                <canvas id="polarAreaChart" width="1000" height="700"></canvas>
+                <script>
+                    var ctx = document.getElementById("polarAreaChart").getContext('2d');
+                    Chart.defaults.global.defaultFontFamily = "Lato";
+                    Chart.defaults.global.defaultFontSize = 12;
+                    var birdsData = {
+                        labels: ["Total Homelessness", "Children under 18", "Children under 12", "Children under 10", "Children sleeping out"],
+                        datasets: [{
+                            data: [105237, 28414, 17845, 16838, 402],
+                            backgroundColor: [
+                                "rgba(255, 0, 0, 0.6)",
+                                "rgba(0, 255,200, 0.6)",
+                                "rgba(200, 0, 200, 0.6)",
+                                "rgba(0, 255, 0, 0.6)"
+                            ],
+                            borderColor: "rgba(0, 0, 0, 0.8)"
+                        }]
+                    };
+
+                    var chartOptions = {
+                        startAngle: -Math.PI / 4,
+                        legend: {
+                            position: 'top'
+                        },
+                        animation: {
+                            animateRotate: true
+                        }
+                    };
+
+                    var polarAreaChart = new Chart(ctx, {
+                        type: 'polarArea',
+                        data: birdsData,
+                        options: chartOptions
+                    });
+                </script>
+            </div>
+            <div class="col-md-1 column">
+            </div>
+        </div>
+        <div>
+            <p>
+            </p>
+        </div>
+        <div>
+            <p>
+            </p>
+        </div>
+        <div class="jumbotron well">
+            <p>
+                Despite popular belief, children are one of the largest groups of Australians experiencing homelessness.
+                In fact, children under the age of 18 make up 27% of people experiencing homelessness.
+                And this figure is likely to be an undercount due to the limitations of the Census as a vehicle for capturing
+                people aged 12-18 who are staying temporarily with friends and relatives.
+            </p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

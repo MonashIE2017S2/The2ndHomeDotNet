@@ -4,12 +4,19 @@
 }
 <script src="~/JS/survey.jquery.js"></script>
 <script src="~/JS/survey.jquery.js"></script>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 <div class="container">
-    <br>
-    <div class="col-md-8 column">
+    <div id="display"></div>
+        <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <div class="container">
+        <ul id="contacts" class="list-group">
+            <!-- Conatct Object li.list-group-item.contact will be added here by js -->
+        </ul>
+    </div>
+    <div class="col-md-10 column">
         <div class="panel panel-danger">
-            <div class="panel-heading">Vulnerable Identifier</div>
-            <div class="panel-body" style="height: 410px; word-break: break-all; overflow-y: scroll;">
+            <div class="panel-heading"></div>
+            <div class="panel-body" style="height: 430px; word-break: break-all; overflow-y: scroll;">
                 <div class="row clearfix">
                     <div id="surveyElement"></div>
                     <div id="surveyResult"></div>
@@ -19,7 +26,9 @@
                     <div id="alert1">
                         <div id="alert-content1">
                             <img class="emoji" src="~/Image/sad.png" width="100px" height="100px">
-                            <p>Looks like the child needs help</p>
+                            <p>Looks like the child may be vulnerable to homelessness</p>
+                            <p>Please find the list of support services available here: <a href="~/TeacherHelper.cshtml">Support Services</a></p>
+                            <p>Find activities for student near you: <a href="~/ParentsCommunication2.cshtml">Activities</a></p>
                         </div>
                     </div>
                 </div>
@@ -27,7 +36,7 @@
                     <div id="alert2">
                         <div id="alert-content2">
                             <img class="emoji" src="~/Image/happy.png" width="100px" height="100px">
-                            <p>No reason to be concerned</p>
+                            <p>The child may not be vulnerable to homelessness</p>
                         </div>
                     </div>
                 </div>

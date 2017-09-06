@@ -1,0 +1,30 @@
+.portfolio{
+    min-width: 400px;
+
+    min-height: 400px;
+    display: inline;
+    text-align: center;
+    font-size: larger;
+}
+
+
+p{
+    text-align: justify;
+
+}
+
+.w3-card-4 img{
+    position: relative;
+    width:60%;
+    height:300px;
+
+
+}
+
+.w3-center>li{
+    list-style-type: none;
+}
+.w3-card-4{
+    align-content: center;
+    width: 400px;
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Second Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="JS/jquery-3.2.1.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="JS/Chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row clearfix">
+        <div>
+            <p>
+            <p>
+            </p>
+            </p>
+        </div>
+        <div class="col-md-12 column">
+            <div class="row clearfix">
+                <div class="col-md-4 column">
+                    <img alt="200x68" src="Image/second-home.jpg" />
+                </div>
+                <div class="col-md-6 column">
+                </div>
+                <div class="col-md-2 column">
+                </div>
+            </div>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="active">
+                    Visualization
+                </li>
+                <li>
+                    <a id="modal-137380" href="#modal-container-137380" data-toggle="modal">Quiz</a>
+                    <div class="modal fade" id="modal-container-137380" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h2 class="modal-title" id="myModalLabel">
+                                        Declaration
+                                    </h2>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <li>
+                                            This quiz is design for the user to identify the kids who will experience homelessness.
+                                        </li>
+                                        <li>
+                                            Your answer will be recorded and analyzed.
+                                        </li>
+                                        <li>
+                                            We also ensure that your privacy will not be leaked.
+                                        </li>
+                                        <li>
+                                            Once your answers uploaded is identified as high-risk target, we will give you the opportunity to report this situation.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary" onClick = "window.location.href=('quiz.html')">Yes, I know it</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="btn btn-primary btn-large" disabled>Report(coming soon)</a>
+                </li>
+            </ul>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-2 column">
+            </div>
+            <div class="col-md-2 column">
+            </div>
+            <div class="col-md-2 column">
+                <button type="button" class="btn btn-default btn-block" onClick = "window.location.href=('visualization.html')">Previous</button>
+            </div>
+            <div class="col-md-2 column">
+                <button type="button" class="btn btn-default btn-block" onClick = "window.location.href=('visualization2.html')">Next</button>
+            </div>
+            <div class="col-md-2 column">
+            </div>
+            <div class="col-md-2 column">
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-1 column">
+            </div>
+            <div class="col-md-5 column">
+                <canvas id="donutChart" width="1000" height="700"></canvas>
+                <script>
+                    var oilCanvas = document.getElementById("donutChart");
+
+                    Chart.defaults.global.defaultFontFamily = "Lato";
+                    Chart.defaults.global.defaultFontSize = 12;
+
+                    var oilData = {
+                        labels: [
+                            "ACT",
+                            "NSW",
+                            "NT",
+                            "QLD",
+                            "SA",
+                            "TAS",
+                            "VIC",
+                            "WA"
+                        ],
+                        datasets: [
+                            {
+                                data: [1758, 28191, 15479, 19831, 5985, 1579, 22773, 9595],
+                                backgroundColor: [
+                                    "#FF6384",
+                                    "#63FF84",
+                                    "#40beff",
+                                    "#c034ff",
+                                    "#6384FF",
+                                    "#ffbe4f",
+                                    "#ff24a7",
+                                    "#8463FF",
+                                    "#ff2e2c"
+                                ],
+                                borderColor: "white",
+                                borderWidth: 1
+                            }]
+                    };
+
+                    var chartOptions = {
+                        rotation: -Math.PI,
+                        cutoutPercentage: 30,
+                        circumference: Math.PI,
+                        legend: {
+                            position: 'top'
+                        },
+                        animation: {
+                            animateRotate: false,
+                            animateScale: true
+                        }
+                    };
+
+                    var pieChart = new Chart(oilCanvas, {
+                        type: 'doughnut',
+                        data: oilData,
+                        options: chartOptions
+                    });
+                </script>
+            </div>
+            <div class="col-md-5 column">
+                <canvas id="donutChart2" width="1000" height="700"></canvas>
+                <script>
+                    var oilCanvas = document.getElementById("donutChart2");
+
+                    Chart.defaults.global.defaultFontFamily = "Lato";
+                    Chart.defaults.global.defaultFontSize = 12;
+
+                    var oilData = {
+                        labels: [
+                            "Aboriginal and Torres Strait Islander",
+                            "non-Aboriginal or Torres Strait Islanders"
+                        ],
+                        datasets: [
+                            {
+                                data: [26744, 78493],
+                                backgroundColor: [
+                                    "#FF6384",
+                                    "#63FF84"
+                                ],
+                                borderColor: "white",
+                                borderWidth: 1
+                            }]
+                    };
+
+                    var chartOptions = {
+                        rotation: -Math.PI,
+                        cutoutPercentage: 30,
+                        circumference: Math.PI,
+                        legend: {
+                            position: 'top'
+                        },
+                        animation: {
+                            animateRotate: false,
+                            animateScale: true
+                        }
+                    };
+
+                    var pieChart = new Chart(oilCanvas, {
+                        type: 'doughnut',
+                        data: oilData,
+                        options: chartOptions
+                    });
+                </script>
+            </div>
+            <div class="col-md-1 column">
+            </div>
+        </div>
+        <div>
+            <p>
+            </p>
+        </div>
+        <div>
+            <p>
+            </p>
+        </div>
+        <div class="jumbotron well">
+            <p>
+                We can find that the number of homeless people is related to the population of each state.
+                Moreover, there are 26,744 Aboriginal and Torres Strait Islanders experiencing homelessness on Census night.
+                They are 15 times more likely to be staying in improvised dwellings, tents or sleeping rough than non-Aboriginal or Torres Strait Islanders.
+            </p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

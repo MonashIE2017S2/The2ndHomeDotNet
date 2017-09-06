@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Second Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/ProgressSteps.css">
+    <script src="../JS/jquery-3.2.1.js"></script>
+    <script src="../JS/Chart.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="../CSS/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="../JS/bootstrap-toggle.min.js"></script>
+    <script src="../JS/Modals.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+        hr {
+            height: 4px;
+            margin-left: 15px;
+            margin-bottom:-3px;
+        }
+        .hr-warning{
+            background-image: -webkit-linear-gradient(left, rgba(210,105,30,.8), rgba(210,105,30,.6), rgba(0,0,0,0));
+        }
+        .hr-success{
+            background-image: -webkit-linear-gradient(left, rgba(15,157,88,.8), rgba(15, 157, 88,.6), rgba(0,0,0,0));
+        }
+        .hr-primary{
+            background-image: -webkit-linear-gradient(left, rgba(66,133,244,.8), rgba(66, 133, 244,.6), rgba(0,0,0,0));
+        }
+        .hr-danger{
+            background-image: -webkit-linear-gradient(left, rgba(244,67,54,.8), rgba(244,67,54,.6), rgba(0,0,0,0));
+        }
+
+        .breadcrumb {
+            background: rgba(245, 245, 245, 0);
+            border: 0px solid rgba(245, 245, 245, 1);
+            border-radius: 25px;
+            display: block;
+        }
+
+        .btn-bread{
+            margin-top:10px;
+            font-size: 12px;
+
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <br>
+        <div class="col-md-2 column">
+            <img alt="200x68" src="../Image/second-home.jpg" />
+        </div>
+        <div class="col-md-1 column">
+        </div>
+        <div class="col-md-9 column">
+            <br>
+            <ul class="breadcrumb">
+                <li class="active">
+                    <a href="../index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="active">
+                    Facts
+                </li>
+                <li>
+                    <a id="modal-137380" href="#modal-container-137380" data-toggle="modal">Quiz</a>
+                    <div class="modal fade" id="modal-container-137380" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h2 class="modal-title" id="myModalLabel">
+                                        Declaration
+                                    </h2>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <li>
+                                            This quiz is design for the user to identify the kids who will experience homelessness.
+                                        </li>
+                                        <li>
+                                            Your answer will be recorded and analyzed.
+                                        </li>
+                                        <li>
+                                            We also ensure that your privacy will not be leaked.
+                                        </li>
+                                        <li>
+                                            Once your answers uploaded is identified as high-risk target, we will give you the opportunity to report this situation.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary" onClick = "window.location.href=('Quiz.html')">Yes, I know it</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="About.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <br>
+        <br>
+        <div class="row">
+            <hr class="hr-primary" />
+            <ol class="breadcrumb bread-primary ">
+                <button href="#" class="btn btn-primary"><i class="fa fa-newspaper-o"></i> News</button>
+                <li><a href="#">MY TOPICS</a></li>
+                <li><a href="#">WORLD</a></li>
+                <li class="active">LOCAL</li>
+                <li class="active">US</li>
+            </ol>
+        </div>
+        <div class="row">
+            <hr class="hr-danger" />
+            <ol class="breadcrumb bread-danger">
+                <button href="#" class="btn btn-danger"><i class="fa fa-paw"></i> Entertainment</button>
+                <li><a href="#">CELEBRITY</a></li>
+                <li><a href="#">MOVIES</a></li>
+                <li class="active">MUSIC</li>
+            </ol>
+        </div>
+        <div class="row">
+            <hr class="hr-success" />
+            <ol class="breadcrumb bread-success">
+                <button href="#" class="btn btn-success"><i class="fa fa-life-ring"></i> Sports</button>
+                <li><a href="#">NFL</a></li>
+                <li><a href="#">NBA</a></li>
+                <li class="active">NCAA</li>
+            </ol>
+        </div>
+        <div class="row">
+            <hr class="hr-warning" />
+            <ol class="breadcrumb bread-warning">
+                <button href="#" class="btn btn-warning"><i class="fa fa-money"></i> Money</button>
+                <li><a href="#"> MY WATCHLIST</a></li>
+                <li><a href="#">MARKETS PERSONAL</a></li>
+                <li class="active">REAL ESTATE</li>
+            </ol>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

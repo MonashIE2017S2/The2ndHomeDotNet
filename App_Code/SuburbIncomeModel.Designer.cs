@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Yang-Deng\documents\visual studio 2017\WebSites\The2Home\App_Code\SuburbIncomeModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Yang-Deng\Documents\Visual Studio 2017\WebSites\WebSite3\App_Code\SuburbIncomeModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
